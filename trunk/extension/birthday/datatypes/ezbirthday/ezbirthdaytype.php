@@ -133,7 +133,7 @@ class eZBirthdayType extends eZDataType
             return EZ_INPUT_VALIDATOR_STATE_INVALID;
         }
 
-        $datetime = checkdate ( $month, $day, $year );
+        $datetime = checkdate( $month, $day, $year );
 
         if ( $datetime !== false )
             return EZ_INPUT_VALIDATOR_STATE_ACCEPTED;
@@ -184,10 +184,10 @@ class eZBirthdayType extends eZDataType
             //$date = new eZDate();
             $contentClassAttribute = $contentObjectAttribute->contentClassAttribute();
 
-	        if ( $year == '' or $month == '' or $day == '' )
+            if ( $year == '' or $month == '' or $day == '' )
                 $date = NULL;
-	        else
-	            $date = $year . '-'.eZBirthdayType::addZero( $month ) . '-'. eZBirthdayType::addZero( $day );
+            else
+                $date = $year . '-'.eZBirthdayType::addZero( $month ) . '-'. eZBirthdayType::addZero( $day );
 
             $collectionAttribute->setAttribute( 'data_text', $date );
             return true;
@@ -206,7 +206,7 @@ class eZBirthdayType extends eZDataType
             $year = $valueArray[1];
             $month =  $valueArray[2];
             $day = $valueArray[3] ;
-            $birthday = new eZBirthday ( array ("year" => $year, "month" => $month, "day" => $day ) );
+            $birthday = new eZBirthday( array ("year" => $year, "month" => $month, "day" => $day ) );
         }
         else
             $birthday = new eZBirthday();
@@ -276,7 +276,7 @@ class eZBirthdayType extends eZDataType
 
     function hasObjectAttributeContent( &$contentObjectAttribute )
     {
-        return ( strlen ( $contentObjectAttribute->attribute( "data_text" ) ) > 0 );
+        return ( strlen( $contentObjectAttribute->attribute( "data_text" ) ) > 0 );
     }
 
     /*!
