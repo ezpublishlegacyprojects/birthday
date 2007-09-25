@@ -25,7 +25,6 @@
 
     <div class="element">
         <label>{"Day"|i18n("design/standard/content/datatype")}</label><div class="labelbreak"></div>
-        <option value=""></option>
         <select name="{$attribute_base}_birthday_day_{$attribute.id}" title="{"Please enter the day"|i18n("design/standard/content/datatype")}">
             <option value=""></option>
         {for 1 to 31 as $i}
