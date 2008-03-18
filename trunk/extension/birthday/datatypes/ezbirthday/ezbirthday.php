@@ -12,7 +12,7 @@ class eZBirthday
 
             if ( checkdate( $this->Month, $this->Day, $this->Year ) !== false )
             {
-                $zodiac = eZBirthday::get_zodiac_sign( $this->Month, $this->Day );
+                $zodiac = self::get_zodiac_sign( $this->Month, $this->Day );
 
                 if ( is_array( $zodiac ) and count( $zodiac ) > 0 )
                 {
@@ -21,10 +21,10 @@ class eZBirthday
                     $this->Zodiac_Name = $zodiac["Name"];
                 }
 
-                $this->Days_On_Earth = abs( eZBirthday::gregorianToJD( $this->Month,
+                $this->Days_On_Earth = abs( self::gregorianToJD( $this->Month,
                                                                        $this->Day,
                                                                        $this->Year ) -
-                                                                       eZBirthday::gregorianToJD(
+                                                                       self::gregorianToJD(
                                                                          date( "m" ),
                                                                          date( "d" ),
                                                                          date( "Y" ) ) );
@@ -32,7 +32,7 @@ class eZBirthday
         }
     }
 
-    function gregorianToJD( $month,$day,$year )
+    function gregorianToJD( $month, $day, $year )
     {
         if ( $month > 2 )
             $month = $month - 3;
@@ -67,7 +67,7 @@ class eZBirthday
 
     function hasAttribute( $name )
     {
-        $attributes = eZBirthday::attributes();
+        $attributes = self::attributes();
         if ( in_array( $name, $attributes ) )
             return true;
         else
@@ -159,12 +159,12 @@ class eZBirthday
         }
     }
 
-    var $Day;
-    var $Month;
-    var $Year;
-    var $Zodiac_Nr;
-    var $Zodiac_No;
-    var $Zodiac_Name;
-    var $Days_On_Earth;
+    private $Day;
+    private $Month;
+    private $Year;
+    private $Zodiac_Nr;
+    private $Zodiac_No;
+    private $Zodiac_Name;
+    private $Days_On_Earth;
 }
 ?>
