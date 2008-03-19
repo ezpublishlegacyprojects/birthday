@@ -229,9 +229,9 @@ class eZBirthdayType extends eZDataType
     /*!
      Returns the date.
     */
-    function title( $contentObjectAttribute )
+    function title( $objectAttribute, $name = null )
     {
-        return $contentObjectAttribute->attribute( "data_text" );
+        return $objectAttribute->attribute( "data_text" );
     }
 
     function hasObjectAttributeContent( $contentObjectAttribute )
