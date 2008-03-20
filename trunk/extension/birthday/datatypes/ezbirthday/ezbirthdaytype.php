@@ -178,8 +178,8 @@ class eZBirthdayType extends eZDataType
     */
     function initializeClassAttribute( $classAttribute )
     {
-        if ( $classAttribute->attribute( EZ_DATATYPESTRING_BIRTHDAY_DEFAULT ) == null )
-            $classAttribute->setAttribute( EZ_DATATYPESTRING_BIRTHDAY_DEFAULT, 0 );
+        if ( $classAttribute->attribute( self::BIRTHDAY_DEFAULT ) == null )
+            $classAttribute->setAttribute( self::BIRTHDAY_DEFAULT, 0 );
         $classAttribute->store();
     }
 
@@ -196,7 +196,7 @@ class eZBirthdayType extends eZDataType
         else
         {
             $contentClassAttribute = $contentObjectAttribute->contentClassAttribute();
-            $defaultType = $contentClassAttribute->attribute( EZ_DATATYPESTRING_BIRTHDAY_DEFAULT );
+            $defaultType = $contentClassAttribute->attribute( self::BIRTHDAY_DEFAULT );
             if ( $defaultType == 1 )
             {
                 $day = eZBirthdayType::addZero( date( 'd' ) );
@@ -213,7 +213,7 @@ class eZBirthdayType extends eZDataType
         if ( $http->hasPostVariable( $default ) )
         {
             $defaultValue = $http->postVariable( $default );
-            $classAttribute->setAttribute( EZ_DATATYPESTRING_BIRTHDAY_DEFAULT,  $defaultValue );
+            $classAttribute->setAttribute( self::BIRTHDAY_DEFAULT,  $defaultValue );
         }
         return true;
     }
@@ -257,7 +257,7 @@ class eZBirthdayType extends eZDataType
     */
     function serializeContentClassAttribute( $classAttribute, $attributeNode, $attributeParametersNode )
     {
-        $defaultValue = $classAttribute->attribute( EZ_DATATYPESTRING_BIRTHDAY_DEFAULT );
+        $defaultValue = $classAttribute->attribute( self::BIRTHDAY_DEFAULT );
         switch ( $defaultValue )
         {
             case self::BIRTHDAY_DEFAULT_EMTPY:
