@@ -58,9 +58,17 @@ class eZBirthdayType extends eZDataType
 
         $datetime = checkdate( $month, $day, $year );
         if ( $datetime !== false )
+        {
             return eZInputValidator::STATE_ACCEPTED;
+        }
+        else
+        {
+            $contentObjectAttribute->setValidationError( ezi18n( 'kernel/classes/datatypes',
+                                                                 'Please enter a correct date.' ) );
+            return eZInputValidator::STATE_INVALID;
+        }
 
-        return eZInputValidator::STATE_INVALID;
+
     }
 
     /*!
@@ -96,9 +104,15 @@ class eZBirthdayType extends eZDataType
         $datetime = checkdate( $month, $day, $year );
 
         if ( $datetime !== false )
+        {
             return eZInputValidator::STATE_ACCEPTED;
-
-        return eZInputValidator::STATE_INVALID;
+        }
+        else
+        {
+            $contentObjectAttribute->setValidationError( ezi18n( 'kernel/classes/datatypes',
+                                                                 'Please enter a correct date.' ) );
+            return eZInputValidator::STATE_INVALID;
+        }
     }
 
     /*!

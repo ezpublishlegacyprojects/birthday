@@ -7,8 +7,8 @@
         <label>{"Year"|i18n("design/standard/content/datatype")}</label><div class="labelbreak"></div>
         <select name="{$attribute_base}_birthday_year_{$attribute.id}" title="{"Please enter the year"|i18n("design/standard/content/datatype")}">
             <option value=""></option>
-        {for sub($byear,100) to $byear as $i}
-             <option value="{$i}"{if eq($attribute.content.year,$i)} selected="selected"{/if}>{$i}</option>
+        {for $byear to sub( $byear, 100 ) as $i}
+             <option value="{$i}"{if eq($attribute.content.year, $i)} selected="selected"{/if}>{$i}</option>
         {/for}
         </select>
     </div>
@@ -18,7 +18,7 @@
         <select name="{$attribute_base}_birthday_month_{$attribute.id}" title="{"Please enter the month"|i18n("design/standard/content/datatype")}">
             <option value=""></option>
         {for 1 to 12 as $i}
-            <option value="{$i}"{if eq($attribute.content.month,$i)} selected="selected"{/if} >{$i}</option>
+            <option value="{$i}"{if eq($attribute.content.month, $i)} selected="selected"{/if} >{$i}</option>
         {/for}
         </select>
     </div>
@@ -28,7 +28,7 @@
         <select name="{$attribute_base}_birthday_day_{$attribute.id}" title="{"Please enter the day"|i18n("design/standard/content/datatype")}">
             <option value=""></option>
         {for 1 to 31 as $i}
-            <option value="{$i}"{if eq($attribute.content.day,$i)} selected="selected"{/if}>{$i}</option>
+            <option value="{$i}"{if eq($attribute.content.day, $i)} selected="selected"{/if}>{$i}</option>
         {/for}
         </select>
     </div>

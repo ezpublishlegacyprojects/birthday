@@ -28,6 +28,11 @@ class eZBirthday
                                                                          date( "m" ),
                                                                          date( "d" ),
                                                                          date( "Y" ) ) );
+
+                $today = date( "Y" ) . sprintf( "%02d", date( "m" ) ) . sprintf( "%02d", date( "d" ) );
+                $birthday = $this->Year . sprintf( "%02d", $this->Month ) . sprintf( "%02d", $this->Day );
+
+                $this->Age = floor( ( $today - $birthday ) / 10000 );
             }
         }
     }
@@ -62,7 +67,8 @@ class eZBirthday
                       'zodiac_no',
                       'zodiac_name',
                       'days_on_earth',
-                      'has_content' );
+                      'has_content',
+                      'age' );
     }
 
     function hasAttribute( $name )
@@ -156,6 +162,11 @@ class eZBirthday
             {
                 return $this->Days_On_Earth;
             }break;
+
+            case "age" :
+            {
+                return $this->Age;
+            }break;
         }
     }
 
@@ -166,5 +177,6 @@ class eZBirthday
     private $Zodiac_No;
     private $Zodiac_Name;
     private $Days_On_Earth;
+    private $Age;
 }
 ?>
