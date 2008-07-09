@@ -3,5 +3,4 @@
 [RegionalSettings]
 TranslationExtensions[]=birthday
 
-
 */ ?>
