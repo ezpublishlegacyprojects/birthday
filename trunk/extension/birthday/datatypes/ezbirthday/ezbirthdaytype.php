@@ -1,8 +1,5 @@
 ﻿<?php
 
-include_once( 'kernel/classes/ezdatatype.php' );
-include_once( 'extension/birthday/datatypes/ezbirthday/ezbirthday.php' );
-
 class eZBirthdayType extends eZDataType
 {
     const DATA_TYPE_STRING = 'ezbirthday';
