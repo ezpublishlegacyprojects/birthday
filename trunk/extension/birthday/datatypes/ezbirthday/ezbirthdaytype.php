@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 class eZBirthdayType extends eZDataType
 {
@@ -16,7 +16,7 @@ class eZBirthdayType extends eZDataType
 
     static function addZero( $value )
     {
-        return sprintf("%02d", $value);
+        return sprintf( "%02d", $value );
     }
 
     /*!

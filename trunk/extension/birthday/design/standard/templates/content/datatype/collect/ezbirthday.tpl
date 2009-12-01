@@ -2,7 +2,7 @@
 {if is_set($attribute_base)|not}{def $attribute_base='ContentObjectAttribute'}{/if}
 {def $value=cond( is_set( $#collection_attributes[$attribute.id] ), $#collection_attributes[$attribute.id].content, $attribute.content )
     $date=currentdate()
-	$byear=$date|datetime(custom,"%Y")}
+    $byear=$date|datetime(custom,"%Y")}
 <div class="block">
     <div class="element">
         <label>{"Year"|i18n("design/standard/content/datatype")}</label><div class="labelbreak"></div>
