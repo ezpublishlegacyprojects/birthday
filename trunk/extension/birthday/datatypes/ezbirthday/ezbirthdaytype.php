@@ -293,27 +293,31 @@ class eZBirthdayType extends eZDataType
             {
                 $attributeParametersNode->appendChild( eZDOMDocument::createElementNode( 'default-value',
                                                                                          array( 'type' => 'current-date' ) ) );
-            } break;
+                }
+                break;
         }
     }
 
-    /*!
-     \reimp
-    */
     function unserializeContentClassAttribute( $classAttribute, $attributeNode, $attributeParametersNode )
     {
-        $defaultNode = $attributeParametersNode->elementByName( 'default-value' );
-        $defaultValue = strtolower( $defaultNode->attributeValue( 'type' ) );
+        
+        foreach ( $attributeParametersNode->getElementsByTagName( 'default-value' ) as $attribute )
+        {
+            $defaultValue = $attribute->getAttribute( 'type' );
+        }
+        
         switch ( $defaultValue )
         {
             case 'empty':
-            {
-                $classAttribute->setAttribute( self::BIRTHDAY_DEFAULT, self::BIRTHDAY_DEFAULT_EMTPY );
-            } break;
+                {
+                    $classAttribute->setAttribute( self::BIRTHDAY_DEFAULT, self::BIRTHDAY_DEFAULT_EMTPY );
+                }
+                break;
             case 'current-date':
-            {
-                $classAttribute->setAttribute( self::BIRTHDAY_DEFAULT, self::BIRTHDAY_DEFAULT_CURRENT_DATE );
-            } break;
+                {
+                    $classAttribute->setAttribute( self::BIRTHDAY_DEFAULT, self::BIRTHDAY_DEFAULT_CURRENT_DATE );
+                }
+                break;
         }
     }
 
